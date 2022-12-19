@@ -59,7 +59,7 @@ h1 {
     flex-direction: column;
 }
 
-#messageWinner{
+.messageWinner{
     display:none;
     border:2px dashed #ddd;
     box-shadow: -8px 8px 8px #bbb, 4px -4px 8px white;
@@ -70,4 +70,7 @@ button {
     box-shadow: -8px 8px 8px #bbb, 4px -4px 8px white;
     border-radius: 10px;
 }
-
+main>.win{
+    display:block;
+    background-color: red;
+}
