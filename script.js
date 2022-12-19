@@ -2,6 +2,7 @@
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    
     const gameCase = document.querySelectorAll(".case");
     let player = document.getElementById("player");
     const winnerMessage = document.querySelector(".messageWinner")
@@ -59,34 +60,72 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
-    /**
-     * Vérifier si il y a un winner quand 3 true ou 3 false
-     * @param {boolean} first check
-     * @param {boolean} second check
-     * @param {boolean} third check
-     * @param {HTMLElement} first win case
-     * @param {HTMLElement} second win case
-     * @param {HTMLElement} third win case
-     */
-    function checkWinner(first, second, third, firstCase, secondCase, thirdCase) {
-        if (first === true && second === true && third === true) {
-            winnerMessage.classList.add("win")
-            winnerMessage.innerHTML = "player1 a gagné"
-            firstCase.classList.add("winCase")
-            secondCase.classList.add("winCase")
-            thirdCase.classList.add("winCase")
-            stopGmae = true
-        }
-        else if (first === false && second === false && third === false) {
-            winnerMessage.classList.add("win")
-            winnerMessage.innerHTML = "player2 a gagné"
-            firstCase.classList.add("winCase")
-            secondCase.classList.add("winCase")
-            thirdCase.classList.add("winCase")
-            stopGmae = true
-        }
-    }
+    // function checkNumber() {
+    //     winCondition.forEach(arrayWin=>{
+    //         const indexNb1 = arrayWin[0]
+    //         const indexNb2 = arrayWin[1]
+    //         const indexNb3 = arrayWin[2]
+            
+    //         if(checkWin[indexNb1]==="X" && checkWin[indexNb1]===checkWin[indexNb2] && checkWin[indexNb2]===checkWin[indexNb3]){
+                
+    //         }else if(checkWin[indexNb1]==="O" && checkWin[indexNb1]===checkWin[indexNb2] && checkWin[indexNb2]===checkWin[indexNb3]){
+                
+    //         }
+    //     })
+    //     for (let i = 0; i < winCondition.length; i++) {
+    //         const check = ["","",""]
+    //         if (checkWin[winCondition[i][0]] === "X") {
+    //             check[0] = true;
+    //         }
+    //         else if (checkWin[winCondition[i][0]] === "O") {
+    //             check[0] = false;
+    //         }
+    //         if (checkWin[winCondition[i][1]] === "X") {
+    //             check[1] = true;
+    //         }
+    //         else if (checkWin[winCondition[i][1]] === "O") {
+    //             check[1] = false;
+    //         }
+    //         if (checkWin[winCondition[i][2]] === "X") {
+    //             check[2] = true;
+    //         }
+    //         else if (checkWin[winCondition[i][2]] === "O") {
+    //             check[2] = false;
+    //         }
+            
+    //         if (tour >= 9 && winnerMessage.innerHTML !== "player1 a gagné" && winnerMessage.innerHTML !== "player2 a gagné") {
+    //             winnerMessage.classList.add("win")
+    //             winnerMessage.innerHTML = "Egalité"
+    //         }
+    //     }
+    // }
+    // /**
+    //  * Vérifier si il y a un winner quand 3 true ou 3 false
+    //  * @param {boolean} first check
+    //  * @param {boolean} second check
+    //  * @param {boolean} third check
+    //  * @param {HTMLElement} first win case
+    //  * @param {HTMLElement} second win case
+    //  * @param {HTMLElement} third win case
+    //  */
+    // // function checkWinner(first, second, third, firstCase, secondCase, thirdCase) {
+    // //     if (first === true && second === true && third === true) {
+    // //         winnerMessage.classList.add("win")
+    // //         winnerMessage.innerHTML = "player1 a gagné"
+    // //         firstCase.classList.add("winCase")
+    // //         secondCase.classList.add("winCase")
+    // //         thirdCase.classList.add("winCase")
+    // //         stopGmae = true
+    // //     }
+    // //     else if (first === false && second === false && third === false) {
+    // //         winnerMessage.classList.add("win")
+    // //         winnerMessage.innerHTML = "player2 a gagné"
+    // //         firstCase.classList.add("winCase")
+    // //         secondCase.classList.add("winCase")
+    // //         thirdCase.classList.add("winCase")
+    // //         stopGmae = true
+    // //     }
+    // // }
 
     /**
      * Créer et afficher contenu stoger dans le tableau quand on click
