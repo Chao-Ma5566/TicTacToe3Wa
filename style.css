@@ -7,10 +7,11 @@
 
 body {
     text-align: center;
-    font-size: 16px;
+    font-size: 30px;
     margin: 10px;
     background-color: #E5E4E2;
     color: #52595D;
+    font-family: 'Hind', sans-serif;
 
 }
 
@@ -22,24 +23,31 @@ h1 {
     margin: 30px;
     color: #999;
     box-shadow: -8px 8px 8px #bbb, 4px -4px 8px white;
-    font-family: 'Hind', sans-serif;
     font-size: 50px;
     font-weight: normal;
 }
 
 .contrainer {
-    display: flex;
-    flex-direction: column;
+    width: 900px;
+    height: 900px;
+    margin: auto;
+    display: grid;
+    gap: 15px;
+    grid-template:repeat(auto-fit,minmax(250px,288px))/repeat(auto-fit,minmax(250px,288px));
+    transform:scale(0.8);
+    
+    
+    /*border:2px solid black;*/
 }
 
 .contrainer>div {
     line-height: 30px;
     box-shadow: -8px 8px 8px #bbb, 4px -4px 8px white;
     display: flex;
-    margin: 10px clamp(200px, 40%, 400px);
     justify-content: space-between;
     padding: 10px;
     border-radius: 10px;
+    /*border:1px solid black;*/
 }
 
 .inner_box {
@@ -50,14 +58,11 @@ h1 {
     flex-direction: column;
 }
 
-input {
-    padding: 10px 20px;
-    border: none;
-    box-shadow: inset -8px 8px 8px #bbb, inset 4px -4px 8px white;
-    border-radius: 10px;
-    margin-right: 40px;
+#messageWinner{
+    display:none;
+    border:2px dashed #ddd;
+    box-shadow: -8px 8px 8px #bbb, 4px -4px 8px white;
 }
-
 button {
     padding: 5px;
     border: none;
