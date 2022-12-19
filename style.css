@@ -44,9 +44,11 @@ h1 {
     line-height: 30px;
     box-shadow: -8px 8px 8px #bbb, 4px -4px 8px white;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px;
     border-radius: 10px;
+    font-size: 220px;
+    
     /*border:1px solid black;*/
 }
 
@@ -64,12 +66,9 @@ h1 {
     box-shadow: -8px 8px 8px #bbb, 4px -4px 8px white;
 }
 button {
-    padding: 5px;
+    padding: 20px;
     border: none;
     box-shadow: -8px 8px 8px #bbb, 4px -4px 8px white;
     border-radius: 10px;
 }
 
-.btn {
-    padding: 10px 20px;
-}
