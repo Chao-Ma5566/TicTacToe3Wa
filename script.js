@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const restart = document.getElementById("restart")
     let tour = 0;
     let checkWin = ["", "", "", "", "", "", "", "", ""]
+    let stopGmae = false
     const winCondition = [
         [0, 1, 2],
         [3, 4, 5],
@@ -19,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
         [2, 5, 8],
         [2, 4, 6]
     ]
+
+
     /**
      * Vérifier les tableaux winCondition dans checkWin pour envoie true ou false
      * 
@@ -49,6 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 check.third = false;
             }
             checkWinner(check.first, check.second, check.third, gameCase[winCondition[i][0]], gameCase[winCondition[i][1]], gameCase[winCondition[i][2]])
+
+            if (tour >= 9 && winnerMessage.innerHTML !== "player1 a gagné" && winnerMessage.innerHTML !== "player2 a gagné") {
+                winnerMessage.classList.add("win")
+                winnerMessage.innerHTML = "Egalité"
+            }
         }
     }
 
@@ -68,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             firstCase.classList.add("winCase")
             secondCase.classList.add("winCase")
             thirdCase.classList.add("winCase")
+            stopGmae = true
         }
         else if (first === false && second === false && third === false) {
             winnerMessage.classList.add("win")
@@ -75,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             firstCase.classList.add("winCase")
             secondCase.classList.add("winCase")
             thirdCase.classList.add("winCase")
+            stopGmae = true
         }
     }
 
@@ -83,24 +93,27 @@ document.addEventListener('DOMContentLoaded', () => {
      * 
      */
     function generateEvent() {
+
         for (let i = 1; i <= gameCase.length; i++) {
             gameCase[i - 1].addEventListener("click", () => {
-                if (gameCase[i - 1].innerHTML !== "") {
-                    return console.log("Déja pris")
+                if (stopGmae === false) {
+                    if (gameCase[i - 1].innerHTML !== "") {
+                        return console.log("Déja pris")
+                    }
+                    else if (tour % 2 === 0) {
+                        gameCase[i - 1].innerHTML = "X"
+                        player.innerHTML = "player2"
+                        checkWin[i - 1] = "X";
+                        tour++
+                    }
+                    else {
+                        gameCase[i - 1].innerHTML = "O"
+                        player.innerHTML = "player1"
+                        checkWin[i - 1] = "O";
+                        tour++
+                    }
+                    checkNumber()
                 }
-                else if (tour % 2 === 0) {
-                    gameCase[i - 1].innerHTML = "X"
-                    player.innerHTML = "player2"
-                    checkWin[i - 1] = "X";
-                    tour++
-                }
-                else {
-                    gameCase[i - 1].innerHTML = "O"
-                    player.innerHTML = "player1"
-                    checkWin[i - 1] = "O";
-                    tour++
-                }
-                checkNumber()
             })
         }
     }
@@ -112,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         winnerMessage.classList.remove("win")
         gameCase.forEach(element => element.innerHTML = "");
         gameCase.forEach(element => element.classList.remove("winCase"))
+        stopGmae = false
     })
 
     generateEvent()
