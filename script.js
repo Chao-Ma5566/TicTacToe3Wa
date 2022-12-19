@@ -19,8 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         [2, 5, 8],
         [2, 4, 6]
     ]
-
-
     /**
      * Vérifier les tableaux winCondition dans checkWin pour envoie true ou false
      * 
@@ -50,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             else if (checkWin[winCondition[i][2]] === "O") {
                 check.third = false;
             }
-            checkWinner(check.first, check.second, check.third)
+            checkWinner(check.first, check.second, check.third, gameCase[winCondition[i][0]], gameCase[winCondition[i][1]], gameCase[winCondition[i][2]])
         }
     }
 
@@ -59,15 +57,24 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {boolean} first check
      * @param {boolean} second check
      * @param {boolean} third check
+     * @param {HTMLElement} first win case
+     * @param {HTMLElement} second win case
+     * @param {HTMLElement} third win case
      */
-    function checkWinner(first, second, third) {
+    function checkWinner(first, second, third, firstCase, secondCase, thirdCase) {
         if (first === true && second === true && third === true) {
             winnerMessage.classList.add("win")
             winnerMessage.innerHTML = "player1 a gagné"
+            firstCase.classList.add("winCase")
+            secondCase.classList.add("winCase")
+            thirdCase.classList.add("winCase")
         }
         else if (first === false && second === false && third === false) {
             winnerMessage.classList.add("win")
             winnerMessage.innerHTML = "player2 a gagné"
+            firstCase.classList.add("winCase")
+            secondCase.classList.add("winCase")
+            thirdCase.classList.add("winCase")
         }
     }
 
@@ -97,14 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
     }
-    
-    restart.addEventListener("click", ()=>{
+
+    restart.addEventListener("click", () => {
         player.innerHTML = "player1"
         tour = 0;
         checkWin = ["", "", "", "", "", "", "", "", ""]
         winnerMessage.classList.remove("win")
-        gameCase.forEach(element=>element.innerHTML = "");
+        gameCase.forEach(element => element.innerHTML = "");
+        gameCase.forEach(element => element.classList.remove("winCase"))
     })
-    
+
     generateEvent()
 })

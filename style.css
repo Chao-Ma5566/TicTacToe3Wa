@@ -74,3 +74,6 @@ main>.win{
     display:block;
     background-color: red;
 }
+.contrainer>.winCase{
+    background-color: green;
+}
